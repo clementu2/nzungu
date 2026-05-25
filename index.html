@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pepperoni Palace | Pizza Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar-content">
+      <h2>Pepperoni Palace</h2>
+      <nav class="nav-menu">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <button id="authToggleBtn" class="button secondary">Sign In / Register</button>
+      </nav>
+    </div>
+  </header>
+
+  <div id="authModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="closeAuthModal">&times;</button>
+      <div class="auth-tabs">
+        <button class="tab-btn active" data-tab="login">Login</button>
+        <button class="tab-btn" data-tab="register">Register</button>
+      </div>
+
+      <form id="loginForm" class="auth-form active">
+        <h3>Sign In</h3>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit" class="button primary">Sign In</button>
+      </form>
+
+      <form id="registerForm" class="auth-form">
+        <h3>Create Account</h3>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password (min 6 chars)" required />
+        <button type="submit" class="button primary">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Fresh. Hot. Delicious.</p>
+      <h1>Pepperoni Palace</h1>
+      <p>Order your favorite pizza online and enjoy fast delivery or pickup.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="button primary">View Menu</a>
+        <a href="#order" class="button secondary">Start Order</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section split">
+      <div>
+        <h2>Family-owned pizza shop since 2026</h2>
+        <p>We craft our pizzas with fresh dough, premium cheeses, and real ingredients. Choose classic favorites or build your own masterpiece.</p>
+      </div>
+      <div class="feature-cards">
+        <article class="card">
+          <h3>Fast Delivery</h3>
+          <p>Fresh pizzas delivered hot to your door in under 30 minutes.</p>
+        </article>
+        <article class="card">
+          <h3>100% Real Ingredients</h3>
+          <p>Fresh vegetables, premium meats, and house-made sauces.</p>
+        </article>
+        <article class="card">
+          <h3>Best Value</h3>
+          <p>Combo deals, family bundles, and tasty sides for every appetite.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu-section">
+      <div class="section-header">
+        <p class="eyebrow">Our Menu</p>
+        <h2>Popular Pizzas</h2>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <h3>Pepperoni Deluxe</h3>
+          <p>Classic tomato sauce, mozzarella, double pepperoni, and herbs.</p>
+          <span class="price">$14.99</span>
+          <button class="button tertiary" data-item="Pepperoni Deluxe">Add to Order</button>
+        </article>
+        <article class="menu-card">
+          <h3>Veggie Supreme</h3>
+          <p>Bell peppers, mushrooms, red onion, olives, tomato, and feta.</p>
+          <span class="price">$15.99</span>
+          <button class="button tertiary" data-item="Veggie Supreme">Add to Order</button>
+        </article>
+        <article class="menu-card">
+          <h3>BBQ Chicken</h3>
+          <p>BBQ sauce, grilled chicken, red onion, bacon, and cilantro.</p>
+          <span class="price">$16.49</span>
+          <button class="button tertiary" data-item="BBQ Chicken">Add to Order</button>
+        </article>
+        <article class="menu-card">
+          <h3>Margherita</h3>
+          <p>Fresh mozzarella, basil, garlic, and a drizzle of olive oil.</p>
+          <span class="price">$13.49</span>
+          <button class="button tertiary" data-item="Margherita">Add to Order</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="order" class="section order-section">
+      <div class="section-header">
+        <p class="eyebrow">Order Now</p>
+        <h2>Your Cart</h2>
+      </div>
+      <div class="order-panel">
+        <div class="cart">
+          <h3>Selected Items</h3>
+          <ul id="cartItems" class="cart-items">
+            <li class="empty">Your cart is empty.</li>
+          </ul>
+        </div>
+        <div class="order-summary">
+          <h3>Summary</h3>
+          <p>Total: <strong id="cartTotal">$0.00</strong></p>
+          <button class="button primary" id="checkoutBtn" disabled>Checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" class="section feedback-section">
+      <div class="section-header">
+        <p class="eyebrow">Your Experience</p>
+        <h2>Share Your Feedback</h2>
+        <p>Help us improve by sharing your thoughts on your experience.</p>
+      </div>
+
+      <div class="feedback-container">
+        <div id="feedbackFormContainer" class="feedback-form-wrapper hidden">
+          <form id="feedbackForm" class="auth-form">
+            <h3>Leave Feedback</h3>
+            <label for="rating">Rating (1-5 stars)</label>
+            <select id="rating" required>
+              <option value="">Select a rating...</option>
+              <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+              <option value="4">⭐⭐⭐⭐ Good</option>
+              <option value="3">⭐⭐⭐ Average</option>
+              <option value="2">⭐⭐ Poor</option>
+              <option value="1">⭐ Terrible</option>
+            </select>
+            <textarea id="comment" placeholder="Tell us what you think... (optional)" rows="4"></textarea>
+            <button type="submit" class="button primary">Submit Feedback</button>
+          </form>
+        </div>
+
+        <div id="userFeedbackList" class="feedback-list hidden">
+          <h3>Your Feedback History</h3>
+          <ul id="feedbackItems" class="feedback-items"></ul>
+        </div>
+
+        <div id="notAuthenticatedMessage" class="message">
+          <p>Please <button id="signInForFeedbackBtn" class="link-btn">sign in</button> to share your feedback.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <h2>Pepperoni Palace</h2>
+        <p>123 Pizza Avenue • Your City, USA</p>
+        <p>Open daily 11AM - 11PM</p>
+      </div>
+      <div>
+        <p>Email: order@pepperonipalace.com</p>
+        <p>Phone: (555) 123-4567</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="api.js"></script>
+  <script src="auth.js"></script>
+  <script src="feedback.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
